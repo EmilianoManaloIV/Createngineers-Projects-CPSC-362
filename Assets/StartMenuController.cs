@@ -8,12 +8,6 @@ public class StartMenuController : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainGameScene");
     }
-
-    public void OnHelpClick()
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("HelpScene");
-    }
-    
     public void OnExitClick()
     {
 #if UNITY_EDITOR
