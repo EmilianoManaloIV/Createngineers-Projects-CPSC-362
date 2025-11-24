@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: 4333674f2fd4145408fbc949d14602d1
+  productGUID: e89e0c0231b0e46c4bc52b955f5254a0
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: SWE UNO-like
+  productName: Uno-Verse Card Game Basis (New Version)
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -540,7 +540,7 @@ PlayerSettings:
   ps4GarlicHeapSize: 2048
   ps4ProGarlicHeapSize: 2560
   playerPrefsMaxSize: 32768
-  ps4Passcode: tJ2D0rWpqIiSpHBazxE1LbCTFFuqYbKL
+  ps4Passcode: m9pEmKM86VMUH7zjInKNnqpnueoRdI0P
   ps4pnSessions: 1
   ps4pnPresence: 1
   ps4pnFriends: 1
@@ -635,14 +635,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: SWE UNO-like
+  metroPackageName: Uno-Verse Card Game Basis (New Version)
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: SWE UNO-like
+  metroApplicationDescription: Uno-Verse Card Game Basis (New Version)
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -711,10 +711,10 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 963628cf-2b98-4413-a33c-78bd6abf152e
+  cloudProjectId: 7c3b0f45-afa9-49db-a06a-be8d2837d8d2
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: SWE UNO-like
+  projectName: Uno-Verse Card Game Basis (New Version)
   organizationId: ethanburnesmkdm
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
