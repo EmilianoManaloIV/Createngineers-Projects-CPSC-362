@@ -355,6 +355,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1741820136}
+        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+        m_MethodName: OnButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 1386591557}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -1264,6 +1276,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 478610726}
   m_CullTransparentMesh: 1
+--- !u!1 &538778814
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 538778816}
+  - component: {fileID: 538778815}
+  m_Layer: 0
+  m_Name: _SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &538778815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538778814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8161529460c834e1e8b3f8aad296f162, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuMusic: {fileID: 8300000, guid: afda3d6f27f9742eab850073686e845b, type: 3}
+  gameMusic: {fileID: 8300000, guid: 714bd4e3805404f76a879b8823bf3bb8, type: 3}
+  gameStartShuffle: {fileID: 8300000, guid: 4a098cca7ad8446b8b10bb79ea563c78, type: 3}
+  drawCard: {fileID: 8300000, guid: 5541faa84ac854a49af09c634fde31a8, type: 3}
+  playCard: {fileID: 8300000, guid: bdd359ec25dd540a5a4ac562fcb8f276, type: 3}
+  drawTwo: {fileID: 8300000, guid: 200dde8bb1a294535b3205e0f226b4b4, type: 3}
+  drawFour: {fileID: 8300000, guid: e4d89484e80f8424d97733f7fb0b1d9c, type: 3}
+  skipTurn: {fileID: 8300000, guid: 938874055d5b1429a9bf84919d2a1a43, type: 3}
+  reverseTurn: {fileID: 8300000, guid: c23ff54d15ef8466fb0bdde55f0c2148, type: 3}
+  callUno: {fileID: 8300000, guid: ccf9f20b4c1724bc38d0141b5dbb9fbc, type: 3}
+  winGame: {fileID: 8300000, guid: 5aaebeef2c8304febbfc046ef34d4f1c, type: 3}
+  buttonClick: {fileID: 8300000, guid: c617873efbd8e41bf8c0c1617ab3c7ab, type: 3}
+--- !u!4 &538778816
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538778814}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.18255325, y: 1.3913465, z: 10.36997}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &552485877
 GameObject:
   m_ObjectHideFlags: 0
@@ -1654,6 +1722,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1741820136}
+        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+        m_MethodName: OnButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 1741820135}
         m_TargetAssemblyTypeName: RulesManager, Assembly-CSharp
         m_MethodName: PanelFadeOut
@@ -2274,8 +2354,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1741820134}
-        m_TargetAssemblyTypeName: StartMenuController, Assembly-CSharp
+      - m_Target: {fileID: 1741820136}
+        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+        m_MethodName: OnButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1741820136}
+        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
         m_MethodName: OnExitClick
         m_Mode: 1
         m_Arguments:
@@ -2440,6 +2532,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1741820136}
+        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+        m_MethodName: OnButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1169208791}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -2597,8 +2701,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1741820134}
-        m_TargetAssemblyTypeName: StartMenuController, Assembly-CSharp
+      - m_Target: {fileID: 1741820136}
+        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
         m_MethodName: OnStartClick
         m_Mode: 1
         m_Arguments:
@@ -2659,8 +2763,8 @@ GameObject:
   - component: {fileID: 1741820132}
   - component: {fileID: 1741820131}
   - component: {fileID: 1741820130}
-  - component: {fileID: 1741820134}
   - component: {fileID: 1741820135}
+  - component: {fileID: 1741820136}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2754,18 +2858,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1741820134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1741820129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 308d5c5fbed2f4699af1f225b78febca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1741820135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2781,6 +2873,18 @@ MonoBehaviour:
   fadeTime: 1
   canvasGroup: {fileID: 1169208795}
   rectTransform: {fileID: 1169208792}
+--- !u!114 &1741820136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741820129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f7c437217cf04aa0bdecdba8efd566b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1750947214
 GameObject:
   m_ObjectHideFlags: 0
@@ -3449,6 +3553,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1741820136}
+        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+        m_MethodName: OnButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1386591557}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -3518,3 +3634,4 @@ SceneRoots:
   - {fileID: 407676915}
   - {fileID: 1741820133}
   - {fileID: 1757370376}
+  - {fileID: 538778816}

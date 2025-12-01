@@ -14,7 +14,10 @@ public class RulesManager : MonoBehaviour
     {
         canvasGroup.alpha = 0f; // Start at invisible
         rectTransform.transform.localPosition = new Vector3 (0f, 0, 0f); // Start off-screen at 0 y
-        rectTransform.DOAnchorPos(new Vector2(0f, 0f), fadeTime, false).SetEase(Ease.OutQuint); // Move to start pos
+        rectTransform.DOAnchorPos(new Vector2(0f, 0f), fadeTime, false)
+                     .SetEase(Ease.OutQuint) // Move to start pos
+                     .SetUpdate(true);
+                     
         canvasGroup.DOFade(1, fadeTime); // Fade in
     }
 
@@ -22,8 +25,13 @@ public class RulesManager : MonoBehaviour
     {
         canvasGroup.alpha = 1f; // Start at visible
         rectTransform.transform.localPosition = new Vector3 (0f, 0f, 0f); // Start on-screen
-        rectTransform.DOAnchorPos(new Vector2(0f, 0f), fadeTime, false).SetEase(Ease.InOutQuint); // Move off-screen to -1000 y
-        canvasGroup.DOFade(0, fadeTime).OnComplete(() => {
+        rectTransform.DOAnchorPos(new Vector2(0f, 0f), fadeTime, false)
+                     .SetEase(Ease.InOutQuint) 
+                     .SetUpdate(true);
+
+        canvasGroup.DOFade(0, fadeTime)
+                   .SetUpdate(true)
+                   .OnComplete(() => {
             // Deactivate the panel GameObject after fade completes
             if (canvasGroup != null && canvasGroup.gameObject != null)
             {
