@@ -8,7 +8,7 @@ using JetBrains.Annotations;
 // This is the main controller for the entire game.
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance; // Singleton pattern
+    public static GameManager Instance;
 
     [Header("Game Components")]
     [Tooltip("A list of all CardData assets. Populate this in the Inspector.")]

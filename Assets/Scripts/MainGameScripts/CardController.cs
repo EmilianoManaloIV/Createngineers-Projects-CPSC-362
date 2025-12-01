@@ -35,7 +35,7 @@ public class CardController : MonoBehaviour
     }
     
     
-    /// Initializes the card with its data and owner.
+    // Initializes the card with its data and owner.
     public void Initialize(CardData data, Player player)
     {
         cardData = data;

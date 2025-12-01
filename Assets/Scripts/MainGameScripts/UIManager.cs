@@ -1,17 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro; // Make sure to use TextMeshPro
-using System.Collections.Generic; // For the list of buttons
+using TMPro;
+using System.Collections.Generic;
 
-/// <summary>
-/// Manages all UI elements in the MainGameScene.
-/// ---
-/// UPDATED: Added sound triggers to all buttons.
-/// </summary>
+// Manages all UI elements in the MainGameScene.
+
 public class UIManager : MonoBehaviour
 {
     [Header("Game Manager")]
-    // This is set automatically by GameManager.Instance
     
     [Header("Status")]
     public TextMeshProUGUI statusText;

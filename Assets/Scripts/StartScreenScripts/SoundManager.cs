@@ -1,16 +1,12 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-/// <summary>
-/// This is a persistent Singleton (immortal object) that manages
-/// all audio in the game. Place it in your FIRST scene.
-/// </summary>
+// This is a persistent Singleton (immortal object) that manages
+// all audio in the game. Place it in your FIRST scene.
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
 
-    // We need two audio sources: one for looping music,
-    // and one for one-shot sound effects.
     private AudioSource musicSource;
     private AudioSource sfxSource;
 

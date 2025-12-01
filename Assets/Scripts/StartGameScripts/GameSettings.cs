@@ -1,17 +1,13 @@
 using UnityEngine;
-using UnityEngine.UI; // Required for Buttons
-using UnityEngine.SceneManagement; // Required for changing scenes
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-/// <summary>
 /// This is the "immortal" object that carries the bot count
 /// from the selection scene to the main game scene.
-/// ---
-/// UPDATED:
-/// - Contains the fix for the "duplicate singleton" bug.
-/// </summary>
+
 public class GameSettings : MonoBehaviour
 {
-    public static GameSettings Instance; // The singleton instance
+    public static GameSettings Instance;
 
     public int botCount = 3; // Default to 3
 
@@ -30,7 +26,6 @@ public class GameSettings : MonoBehaviour
     {
         if (Instance == null)
         {
-            // --- This is the FIRST instance ---
             Instance = this;
             DontDestroyOnLoad(this.gameObject);
             
@@ -38,16 +33,7 @@ public class GameSettings : MonoBehaviour
             LinkButtons();
         }
         else
-        {
-            // --- This is a DUPLICATE instance ---
-            // This happens on the 2nd visit to the scene.
-            
-            // 'Instance' = the IMMORTAL object from the first visit.
-            // 'this' = the NEW duplicate object in the scene.
-
-            // We must "re-wire" this scene's buttons (which are
-            // linked to 'this') to the 'Instance' before we are destroyed.
-            
+        {   
             // 1. Remove the broken listeners from the scene's buttons
             this.bot1Button.onClick.RemoveAllListeners();
             this.bot2Button.onClick.RemoveAllListeners();
@@ -65,9 +51,7 @@ public class GameSettings : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// A helper function to link the buttons on this component.
-    /// </summary>
+    // A helper function to link the buttons on this component.
     private void LinkButtons()
     {
         // We check if the buttons are assigned, just to be safe!
