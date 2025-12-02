@@ -13,8 +13,8 @@ public class RulesManager : MonoBehaviour
 
     {
         canvasGroup.alpha = 0f; // Start at invisible
-        rectTransform.transform.localPosition = new Vector3 (0f, 0, 0f); // Start off-screen at 0 y
-        rectTransform.DOAnchorPos(new Vector2(0f, 0f), fadeTime, false)
+        rectTransform.transform.localPosition = new Vector3 (43f, -3, 0f); // Start off-screen at 0 y
+        rectTransform.DOAnchorPos(new Vector2(43f, -3f), fadeTime, false)
                      .SetEase(Ease.OutQuint) // Move to start pos
                      .SetUpdate(true);
                      
@@ -24,8 +24,8 @@ public class RulesManager : MonoBehaviour
     public void PanelFadeOut()
     {
         canvasGroup.alpha = 1f; // Start at visible
-        rectTransform.transform.localPosition = new Vector3 (0f, 0f, 0f); // Start on-screen
-        rectTransform.DOAnchorPos(new Vector2(0f, 0f), fadeTime, false)
+        rectTransform.transform.localPosition = new Vector3 (43f, -3f, 0f); // Start on-screen
+        rectTransform.DOAnchorPos(new Vector2(43f, -3f), fadeTime, false)
                      .SetEase(Ease.InOutQuint) 
                      .SetUpdate(true);
 
