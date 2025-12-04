@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
 
     private Player previousPlayer = null; // To un-highlight the last player
     private bool hasDrawnCardThisTurn = false; // To prevent multiple draws
+    private bool isProcessingMove = false;
 
     [Header("Game State")]
     public List<CardData> discardPile;
@@ -232,6 +233,9 @@ public class GameManager : MonoBehaviour
         
         // Store this player for the next turn
         previousPlayer = currentPlayer;
+
+        // Determines if we are processing a move so no more cards can be played.
+        isProcessingMove = false;
         
         // At the start of ANY new turn (AI or Human),
         // we should hide the Pass button from the previous turn.
@@ -296,6 +300,8 @@ public class GameManager : MonoBehaviour
     public void PlayCard(Player player, CardController cardToPlay)
     {
         if (isPaused) return;
+
+        if (isProcessingMove) return;
         
         // Ensure it's this player's turn
         if (player != players[currentPlayerIndex] || !gameIsActive)
@@ -305,7 +311,8 @@ public class GameManager : MonoBehaviour
 
         if (IsValidPlay(cardToPlay.cardData))
         {
-            
+            isProcessingMove = true;
+
             if (SoundManager.Instance != null) SoundManager.Instance.PlayPlayCard();
 
             // 1. Remove from hand (doesn't destroy it)
@@ -416,6 +423,8 @@ public class GameManager : MonoBehaviour
     public void OnPassTurnClicked()
     {
         if (isPaused) return;
+
+        if (isProcessingMove) return;
         
         Player currentPlayer = players[currentPlayerIndex];
 
@@ -426,6 +435,7 @@ public class GameManager : MonoBehaviour
         // Only allow passing *after* drawing a card
         if (hasDrawnCardThisTurn)
         {
+            isProcessingMove = true;
             uiManager.UpdateStatusText("You passed your turn.");
             StartCoroutine(EndTurnAfterDelay(0.5f));
         }
@@ -675,13 +685,28 @@ public class GameManager : MonoBehaviour
     // Updates the visibility of the Uno button based on the human player's hand.
     private void UpdateUnoButtonVisibility()
     {
+        bool showUnoButton = false;
+
         if (IsPlayerTurn(humanPlayer) && humanPlayer.hand.Count == 2)
         {
-            uiManager.ShowUnoButton(true);
+            // Check if the player has at least one playable card
+            bool hasPlayableCard = false;
+            foreach (CardController card in humanPlayer.hand)
+            {
+                if (IsValidPlay(card.cardData))
+                {
+                    hasPlayableCard = true;
+                    break; // Break when found playable card
+                }
+            }
+
+            // Only show the button if they have 2 cards AND one is playable
+            if (hasPlayableCard)
+            {
+                showUnoButton = true;
+            }
         }
-        else
-        {
-            uiManager.ShowUnoButton(false);
-        }
+            uiManager.ShowUnoButton(showUnoButton);
+
     }
 }
