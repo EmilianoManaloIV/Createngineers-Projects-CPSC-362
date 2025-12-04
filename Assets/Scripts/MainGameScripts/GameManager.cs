@@ -234,6 +234,7 @@ public class GameManager : MonoBehaviour
         // Store this player for the next turn
         previousPlayer = currentPlayer;
 
+        // Determines if we are processing a move so no more cards can be played.
         isProcessingMove = false;
         
         // At the start of ANY new turn (AI or Human),
