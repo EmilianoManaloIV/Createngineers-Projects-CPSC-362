@@ -170,7 +170,15 @@ public class CardController : MonoBehaviour
     private void OnMouseEnter()
     {
         //Must be your turn AND the card must be playable
-        if (owner.isAI || !isCardPlayable || !GameManager.Instance.IsPlayerTurn(owner)) return;
+        if (owner.isAI || !isCardPlayable || !GameManager.Instance.IsPlayerTurn(owner))
+        {
+            return;
+        }
+
+        if (GameManager.Instance.isPaused)
+        {
+            return;
+        }
         
         // Simple hover animation: scale up
         transform.localScale = originalScale * HOVER_SCALE_MULTIPLIER;
@@ -179,7 +187,10 @@ public class CardController : MonoBehaviour
     private void OnMouseExit()
     {
         // No check needed, always reset scale
-        if (owner.isAI) return;
+        if (owner.isAI) 
+        {
+            return;
+        }
         transform.localScale = originalScale;
     }
 }
