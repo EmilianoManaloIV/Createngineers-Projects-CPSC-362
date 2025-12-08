@@ -21,7 +21,7 @@ public class AIPlayer : Player
             yield return null;
         }
         
-        GameManager.Instance.uiManager.UpdateStatusText("AI's Turn...");
+        GameManager.Instance.uiManager.UpdateStatusText($"{playerName}'s Turn...");
 
         // Simulate "thinking"
         yield return new WaitForSeconds(Random.Range(0.8f, 1.5f));
@@ -38,7 +38,7 @@ public class AIPlayer : Player
         // Step 2: If no card is found, draw one
         if (cardToPlay == null)
         {
-            GameManager.Instance.uiManager.UpdateStatusText("AI is drawing a card...");
+            GameManager.Instance.uiManager.UpdateStatusText($"{playerName} is drawing a card...");
             CardData drawnCardData = GameManager.Instance.deck.Draw();
             CardController drawnCardObject = DrawCard(drawnCardData);
 
@@ -70,7 +70,7 @@ public class AIPlayer : Player
                 {
                     // 80% chance: The AI "remembers"
                     this.calledUno = true;
-                    GameManager.Instance.uiManager.UpdateStatusText("AI calls UNO!");
+                    GameManager.Instance.uiManager.UpdateStatusText($"{playerName} calls UNO!");
 
                     // Play UNO sound effect
                     if (SoundManager.Instance != null) SoundManager.Instance.PlayUno();
@@ -79,15 +79,14 @@ public class AIPlayer : Player
                 {
                     // 20% chance: The AI "forgets"
                     this.calledUno = false;
-                    GameManager.Instance.uiManager.UpdateStatusText("AI is playing a card...");
-                    // We don't say UNO, so the GameManager will penalize the AI!
+                    GameManager.Instance.uiManager.UpdateStatusText($"{playerName} is playing a card...");
                 }
             }
             else
             {
                 // Not the second-to-last card, just play normally
                 this.calledUno = false;
-                GameManager.Instance.uiManager.UpdateStatusText("AI is playing a card...");
+                GameManager.Instance.uiManager.UpdateStatusText($"{playerName} is playing a card...");
             }
 
             // Wait a moment, then play the card
@@ -103,7 +102,7 @@ public class AIPlayer : Player
         else
         {
             // Step 5: No card to play, even after drawing. Pass the turn.
-            GameManager.Instance.uiManager.UpdateStatusText("AI passes.");
+            GameManager.Instance.uiManager.UpdateStatusText($"{playerName} passes.");
             yield return new WaitForSeconds(1.0f);
 
             while (GameManager.Instance.isPaused)

@@ -4,6 +4,9 @@ using UnityEngine;
 // Base class for a player.
 public class Player : MonoBehaviour
 {
+    [Header("Player Identity")]
+    public string playerName; // Name of the player
+
     [Header("Player State")]
     public List<CardController> hand;
     public bool isAI = false;

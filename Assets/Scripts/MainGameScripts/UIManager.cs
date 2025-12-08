@@ -12,6 +12,13 @@ public class UIManager : MonoBehaviour
     [Header("Status")]
     public TextMeshProUGUI statusText;
 
+
+    [Header("Player Names")]
+    public TextMeshProUGUI nameTextHuman; // Bottom (Player)
+    public TextMeshProUGUI nameTextLeft;  // Left AI
+    public TextMeshProUGUI nameTextTop;   // Top AI
+    public TextMeshProUGUI nameTextRight; // Right AI
+
     [Header("Buttons")]
     public Button drawPileButton;
     public Button unoButton;
