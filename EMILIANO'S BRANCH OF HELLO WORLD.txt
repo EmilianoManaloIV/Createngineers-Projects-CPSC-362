@@ -1,2 +1,0 @@
-This is a test if a Git Commit for our group project! This is the modified version to test branching.
-
