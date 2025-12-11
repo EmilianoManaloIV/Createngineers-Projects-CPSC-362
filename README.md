@@ -21,8 +21,8 @@ game on your machine and all the subsequent documents that are attributed to thi
 [Scrum Artifacts 1](https://github.com/EmilianoManaloIV/Createngineers-Projects-CPSC-362/blob/main/Documentation/Scrum%20Artifacts%201.pdf)
 [Scrum Artifacts 2](https://github.com/EmilianoManaloIV/Createngineers-Projects-CPSC-362/blob/main/Documentation/Scrum%20Artifacts%202.pdf)
 ### Credits & SCRUM Team
-Product Owner: Jordan Sfiligoj
-SCRUM Master: Emiliano Manalo
-Scrum Development Team: Andres Ancira, Ethan Burnes, Roberto Covarrubias,
+- Product Owner: Jordan Sfiligoj
+- SCRUM Master: Emiliano Manalo
+- Scrum Development Team: Andres Ancira, Ethan Burnes, Roberto Covarrubias,
 Colin Mercado, and Aly Sayed
 
