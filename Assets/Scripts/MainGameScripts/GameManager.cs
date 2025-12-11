@@ -27,6 +27,12 @@ public class GameManager : MonoBehaviour
     public AIPlayer aiPlayerLeft;
     public AIPlayer aiPlayerTop;
     public AIPlayer aiPlayerRight;
+
+    [Header("AI Names")]
+    [Tooltip("List of possible names for the AI bots.")]
+    public List<string> botNamesPool = new List<string> { 
+        "Master Emilliano", "Master Jordan", "Master Ethan", "Master Roberto", "Master Andres", "Master Aly", "Master Colin" 
+    };
     
     private List<Player> players;
     
@@ -87,31 +93,73 @@ public class GameManager : MonoBehaviour
         
         players = new List<Player>();
         players.Add(humanPlayer);     // Index 0
+
+        // Assign name to Human
+        humanPlayer.playerName = "You";
+        if (uiManager.nameTextHuman != null) uiManager.nameTextHuman.text = "You";
         
         // Deactivate all AI players by default
         if (aiPlayerLeft != null) aiPlayerLeft.gameObject.SetActive(false);
         if (aiPlayerTop != null) aiPlayerTop.gameObject.SetActive(false);
         if (aiPlayerRight != null) aiPlayerRight.gameObject.SetActive(false);
 
+        // Hide all AI name texts initially
+        if (uiManager.nameTextLeft != null) uiManager.nameTextLeft.gameObject.SetActive(false);
+        if (uiManager.nameTextTop != null) uiManager.nameTextTop.gameObject.SetActive(false);
+        if (uiManager.nameTextRight != null) uiManager.nameTextRight.gameObject.SetActive(false);
+
+        // Temp list of names to not pick duplicates
+        List<string> availableNames = new List<string>(botNamesPool);
+        
+        // Helper function to pick a name
+        string PickName() {
+            if (availableNames.Count == 0) return "Bot " + Random.Range(100, 999);
+            int idx = Random.Range(0, availableNames.Count);
+            string n = availableNames[idx];
+            availableNames.RemoveAt(idx);
+            return n;
+        }
+
         // Add and activate only the AI players we need
         if (botCount == 1)
         {
-            // 1 Bot: Place them at the top
+            // 1 Bot: Top
             if (aiPlayerTop != null) {
                 players.Add(aiPlayerTop);
                 aiPlayerTop.gameObject.SetActive(true);
+
+                // Set Name
+                aiPlayerTop.playerName = PickName();
+                if (uiManager.nameTextTop != null) {
+                    uiManager.nameTextTop.text = aiPlayerTop.playerName;
+                    uiManager.nameTextTop.gameObject.SetActive(true);
+                }
             }
         }
         else if (botCount == 2)
         {
-            // 2 Bots: Place them Left and Right
+            // 2 Bots: Left and Right
             if (aiPlayerLeft != null) {
                 players.Add(aiPlayerLeft);
                 aiPlayerLeft.gameObject.SetActive(true);
+
+                // Set Name
+                aiPlayerLeft.playerName = PickName();
+                if (uiManager.nameTextLeft != null) {
+                    uiManager.nameTextLeft.text = aiPlayerLeft.playerName;
+                    uiManager.nameTextLeft.gameObject.SetActive(true);
+                }
             }
             if (aiPlayerRight != null) {
                 players.Add(aiPlayerRight);
                 aiPlayerRight.gameObject.SetActive(true);
+
+                // Set Name
+                aiPlayerRight.playerName = PickName();
+                if (uiManager.nameTextRight != null) {
+                    uiManager.nameTextRight.text = aiPlayerRight.playerName;
+                    uiManager.nameTextRight.gameObject.SetActive(true);
+                }
             }
         }
         else // 3 Bots
@@ -120,14 +168,35 @@ public class GameManager : MonoBehaviour
             if (aiPlayerLeft != null) {
                 players.Add(aiPlayerLeft);
                 aiPlayerLeft.gameObject.SetActive(true);
+
+                // Set Name
+                aiPlayerLeft.playerName = PickName();
+                if (uiManager.nameTextLeft != null) {
+                    uiManager.nameTextLeft.text = aiPlayerLeft.playerName;
+                    uiManager.nameTextLeft.gameObject.SetActive(true);
+                }
             }
             if (aiPlayerTop != null) {
                 players.Add(aiPlayerTop);
                 aiPlayerTop.gameObject.SetActive(true);
+
+                // Set Name
+                aiPlayerTop.playerName = PickName();
+                if (uiManager.nameTextTop != null) {
+                    uiManager.nameTextTop.text = aiPlayerTop.playerName;
+                    uiManager.nameTextTop.gameObject.SetActive(true);
+                }
             }
             if (aiPlayerRight != null) {
                 players.Add(aiPlayerRight);
                 aiPlayerRight.gameObject.SetActive(true);
+
+                // Set Name
+                aiPlayerRight.playerName = PickName();
+                if (uiManager.nameTextRight != null) {
+                    uiManager.nameTextRight.text = aiPlayerRight.playerName;
+                    uiManager.nameTextRight.gameObject.SetActive(true);
+                }
             }
         }
         // Clear the previous player from the last game
@@ -193,13 +262,7 @@ public class GameManager : MonoBehaviour
             string winnerMessage;
             if (player.isAI)
             {
-                // Find out *which* AI won
-                string winnerName = "AI";
-                // Check which specific AI slot the winner was in
-                if (player == aiPlayerLeft) winnerName = "AI Left";
-                else if (player == aiPlayerTop) winnerName = "AI Top";
-                else if (player == aiPlayerRight) winnerName = "AI Right";
-                winnerMessage = $"{winnerName} wins!";
+                winnerMessage = $"{player.playerName} Wins!";
             }
             else
             {
@@ -334,7 +397,7 @@ public class GameManager : MonoBehaviour
             if (player.hand.Count == 1 && !player.calledUno)
             {
                 // Penalty! Draw 2 cards.
-                uiManager.UpdateStatusText($"{ (player.isAI ? "AI" : "You") } forgot to call UNO! Draw 2.");
+                uiManager.UpdateStatusText($"{player.playerName} forgot to call UNO! Draw 2.");
                 player.DrawCard(deck.Draw());
                 player.DrawCard(deck.Draw());
             }
@@ -522,7 +585,7 @@ public class GameManager : MonoBehaviour
         switch (card.cardType)
         {
             case CardType.Skip:
-                uiManager.UpdateStatusText("First card is a Skip. Player 2's turn.");
+                uiManager.UpdateStatusText($"First card is Skip. {players[1].playerName}'s turn.");
                 currentPlayerIndex = 1; // Skip the first player
                 break;
             
